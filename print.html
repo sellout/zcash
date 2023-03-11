@@ -33,6 +33,7 @@
 
     </head>
     <body>
+    <div id="body-container">
         <!-- Provide site root to javascript -->
         <script>
             var path_to_root = "";
@@ -70,10 +71,12 @@
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
             var html = document.querySelector('html');
-            var sidebar = 'hidden';
+            var sidebar = null;
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
             }
             html.classList.remove('sidebar-visible');
             html.classList.add("sidebar-" + sidebar);
@@ -81,7 +84,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">zcashd</a></li><li class="chapter-item expanded "><a href="user.html"><strong aria-hidden="true">1.</strong> User Documentation</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="user/platform-support.html"><strong aria-hidden="true">1.1.</strong> Platform Support</a></li><li class="chapter-item expanded "><a href="user/wallet-backup.html"><strong aria-hidden="true">1.2.</strong> Wallet Backup</a></li><li class="chapter-item expanded "><a href="user/shield-coinbase.html"><strong aria-hidden="true">1.3.</strong> Shielding Coinbase Outputs</a></li><li class="chapter-item expanded "><a href="user/files.html"><strong aria-hidden="true">1.4.</strong> Data Directory Structure</a></li><li class="chapter-item expanded "><a href="user/metrics.html"><strong aria-hidden="true">1.5.</strong> Metrics</a></li><li class="chapter-item expanded "><a href="user/tor.html"><strong aria-hidden="true">1.6.</strong> Using zcashd with Tor</a></li><li class="chapter-item expanded "><a href="user/security-warnings.html"><strong aria-hidden="true">1.7.</strong> Security Warnings</a></li><li class="chapter-item expanded "><a href="user/deprecation.html"><strong aria-hidden="true">1.8.</strong> Deprecated Features</a></li></ol></li><li class="chapter-item expanded "><a href="dev.html"><strong aria-hidden="true">2.</strong> Developer Documentation</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="dev/dnsseed-policy.html"><strong aria-hidden="true">2.1.</strong> DNS Seeders</a></li><li class="chapter-item expanded "><a href="dev/rust.html"><strong aria-hidden="true">2.2.</strong> Rust in zcashd</a></li><li class="chapter-item expanded "><a href="dev/regtest.html"><strong aria-hidden="true">2.3.</strong> Regtest Tips And Hints</a></li><li class="chapter-item expanded "><a href="dev/platform-tier-policy.html"><strong aria-hidden="true">2.4.</strong> Platform Tier Policy</a></li><li class="chapter-item expanded "><a href="dev/deprecation.html"><strong aria-hidden="true">2.5.</strong> Deprecation Procedure</a></li></ol></li><li class="chapter-item expanded "><a href="design.html"><strong aria-hidden="true">3.</strong> Design</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="design/chain-state.html"><strong aria-hidden="true">3.1.</strong> Chain State</a></li><li class="chapter-item expanded "><a href="design/coins-view.html"><strong aria-hidden="true">3.2.</strong> "Coins" View</a></li><li class="chapter-item expanded "><a href="design/p2p-data-propagation.html"><strong aria-hidden="true">3.3.</strong> P2P Data Propagation</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">zcashd</a></li><li class="chapter-item expanded "><a href="user.html"><strong aria-hidden="true">1.</strong> User Documentation</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="user/release-support.html"><strong aria-hidden="true">1.1.</strong> Release Support</a></li><li class="chapter-item expanded "><a href="user/platform-support.html"><strong aria-hidden="true">1.2.</strong> Platform Support</a></li><li class="chapter-item expanded "><a href="user/wallet-backup.html"><strong aria-hidden="true">1.3.</strong> Wallet Backup</a></li><li class="chapter-item expanded "><a href="user/shield-coinbase.html"><strong aria-hidden="true">1.4.</strong> Shielding Coinbase Outputs</a></li><li class="chapter-item expanded "><a href="user/files.html"><strong aria-hidden="true">1.5.</strong> Data Directory Structure</a></li><li class="chapter-item expanded "><a href="user/metrics.html"><strong aria-hidden="true">1.6.</strong> Metrics</a></li><li class="chapter-item expanded "><a href="user/tor.html"><strong aria-hidden="true">1.7.</strong> Using zcashd with Tor</a></li><li class="chapter-item expanded "><a href="user/security-warnings.html"><strong aria-hidden="true">1.8.</strong> Security Warnings</a></li><li class="chapter-item expanded "><a href="user/deprecation.html"><strong aria-hidden="true">1.9.</strong> Deprecated Features</a></li></ol></li><li class="chapter-item expanded "><a href="dev.html"><strong aria-hidden="true">2.</strong> Developer Documentation</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="dev/dnsseed-policy.html"><strong aria-hidden="true">2.1.</strong> DNS Seeders</a></li><li class="chapter-item expanded "><a href="dev/rust.html"><strong aria-hidden="true">2.2.</strong> Rust in zcashd</a></li><li class="chapter-item expanded "><a href="dev/regtest.html"><strong aria-hidden="true">2.3.</strong> Regtest Tips And Hints</a></li><li class="chapter-item expanded "><a href="dev/platform-tier-policy.html"><strong aria-hidden="true">2.4.</strong> Platform Tier Policy</a></li><li class="chapter-item expanded "><a href="dev/deprecation.html"><strong aria-hidden="true">2.5.</strong> Deprecation Procedure</a></li></ol></li><li class="chapter-item expanded "><a href="design.html"><strong aria-hidden="true">3.</strong> Design</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="design/chain-state.html"><strong aria-hidden="true">3.1.</strong> Chain State</a></li><li class="chapter-item expanded "><a href="design/coins-view.html"><strong aria-hidden="true">3.2.</strong> "Coins" View</a></li><li class="chapter-item expanded "><a href="design/p2p-data-propagation.html"><strong aria-hidden="true">3.3.</strong> P2P Data Propagation</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -142,7 +145,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1>Zcash 5.3.2
+                        <h1>Zcash 5.4.1
 <img align="right" width="120" height="80" src="doc/imgs/logo.png"></h1>
 <h2 id="what-is-zcash"><a class="header" href="#what-is-zcash">What is Zcash?</a></h2>
 <p><a href="https://z.cash/">Zcash</a> is an implementation of the &quot;Zerocash&quot; protocol.
@@ -202,6 +205,46 @@ for detailed instructions.</p>
 <p>This section contains user documentation specific to <code>zcashd</code>.</p>
 <p>See <a href="https://zcash.readthedocs.io/">here</a> for more general Zcash documentation, as well as
 installation instructions for <code>zcashd</code>.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="zcashd-release-support"><a class="header" href="#zcashd-release-support"><code>zcashd</code> Release Support</a></h1>
+<h2 id="release-cadence-and-support-window"><a class="header" href="#release-cadence-and-support-window">Release cadence and support window</a></h2>
+<p><code>zcashd</code> releases happen approximately every six weeks, although this may change if a
+particular release is delayed, or if a hotfix release occurs.</p>
+<p>Each <code>zcashd</code> release is generally supported for 16 weeks. Occasionally this changes for
+individual releases (for example, near to a Network Upgrade activation).</p>
+<p>These two policies mean that there are generally at least two separate <code>zcashd</code> versions
+currently supported at any given time.</p>
+<h2 id="end-of-support-halt"><a class="header" href="#end-of-support-halt">End-of-Support halt</a></h2>
+<p>Every <code>zcashd</code> version released by ECC has an End-of-Support height. When the Zcash chain
+reaches this height, <code>zcashd</code> will automatically shut down, and the binary will refuse to
+restart. This is for several reasons:</p>
+<ul>
+<li>The <code>zcashd</code> maintainers do not have the resources to maintain old versions of <code>zcashd</code>
+indefinitely.</li>
+<li>Each time a user upgrades their <code>zcashd</code> node, they are re-confirming that they are
+happy to run the Zcash consensus rules encoded in the version of <code>zcashd</code> they are
+running. This is an important part of the overall strategy for changes to the node and
+consensus rules; users who want to follow different rules (or even just have a different
+End-of-Support halt policy) will obtain a <code>zcashd</code> binary from some other source, with
+its own support policies.</li>
+<li>Knowing that old versions will shut down is useful for planning backwards-incompatible
+changes in Network Upgrades. A Network Upgrade activation can be targeted for a height
+where we know that all released <code>zcashd</code> versions which <em>did not</em> support the Network
+Upgrade will have shut down by the time the Network Upgrade activates.</li>
+</ul>
+<h2 id="end-of-support-heights"><a class="header" href="#end-of-support-heights">End-of-Support heights</a></h2>
+<p>The End-of-Support height for a running <code>zcashd</code> can be queried over JSON-RPC using the
+<code>getdeprecationinfo</code> method.</p>
+<p>The following table shows End-of-Support information for recent <code>zcashd</code> releases. It is
+automatically updated during each release. &quot;End of Support&quot; dates are estimated at that
+time, and may shift due to changes in network solution power.</p>
+<!-- RELEASE_SCRIPT_START_MARKER - If you make changes here, check make-release.py -->
+<div class="table-wrapper"><table><thead><tr><th><code>zcashd</code> version</th><th>Release date</th><th>Halt height</th><th>End of Support</th></tr></thead><tbody>
+<tr><td>5.3.1</td><td>2022-12-02</td><td>2027524</td><td>2023-03-24</td></tr>
+<tr><td>5.3.2</td><td>2022-12-03</td><td>2029524</td><td>2023-03-25</td></tr>
+<tr><td>5.4.0</td><td>2023-02-09</td><td>2106524</td><td>2023-06-01</td></tr>
+<tr><td>5.4.1</td><td>2023-02-13</td><td>2112024</td><td>2023-06-05</td></tr>
+</tbody></table>
+</div><!-- RELEASE_SCRIPT_END_MARKER -->
 <div style="break-before: page; page-break-before: always;"></div><h1 id="platform-support"><a class="header" href="#platform-support">Platform Support</a></h1>
 <p>Support for different platforms (build &quot;targets&quot; and operating systems) are organised into
 three tiers, each with a different set of guarantees. For more information on the policies
@@ -510,13 +553,52 @@ zcash_chain_verified_block_total 162
 ...
 </code></pre>
 <p>By default, access is restricted to localhost. This can be expanded with
-<code>-metricsallowip=&lt;ip&gt;</code>, which can specify IPs or subnets. Note that HTTPS is not
-supported, and therefore connections to the endpoint are not encrypted or
+<code>-metricsallowip=&lt;ip&gt;</code>, which can specify IPs or subnets. Note that HTTPS is
+not supported, and therefore connections to the endpoint are not encrypted or
 authenticated. Access to the endpoint should be assumed to compromise the
 privacy of node operations, by the provided metrics and/or by timing side
 channels. Non-localhost access is <strong>strongly discouraged</strong> if the node has a
 wallet holding live funds.</p>
-<h3 id="example-metrics-collection-with-docker"><a class="header" href="#example-metrics-collection-with-docker">Example metrics collection with Docker</a></h3>
+<h3 id="metrics-collection-with-docker"><a class="header" href="#metrics-collection-with-docker">Metrics collection with Docker</a></h3>
+<p>A docker-compose.yml has been provided in <code>./contrib/metrics</code> that sets up
+local instances of <code>prometheus</code> and <code>grafana</code> and provides a dashboard that
+charts several of the various metrics exposed by <code>zcashd</code>'s <code>prometheus</code>
+endpoint. Note that both <code>docker</code> and <code>docker-compose</code> must ordinarily be run
+with superuser permissions (use <code>sudo</code>) when running on Linux.</p>
+<p><code>docker-compose up</code><sup class="footnote-reference"><a href="#1">1</a></sup> will start local instances of <code>prometheus</code> and <code>grafana</code>,
+accessible over HTTP on ports <code>9090</code> and <code>3030</code>, respectively. </p>
+<pre><code>cd &lt;zcash_root&gt;/contrib/metrics
+docker-compose up -d
+</code></pre>
+<p>(substitute the root directory where you have checked out the <code>zcash</code> git
+repository for <code>&lt;zcash_root&gt;</code>)</p>
+<p><code>~/.zcash/zcash.conf</code> must be updated to enable <code>prometheus</code> and to allow the
+<code>prometheus</code> server launched via <code>docker-compose</code> to connect to the <code>zcashd</code>
+prometheus endpoint. The following commands can be used to detect the local IP
+address for the <code>prometheus</code> server and add it to the <code>~/.zcash/zcash.conf</code> 
+file. </p>
+<p>First, figure out where <code>prometheus</code> is running.</p>
+<pre><code>export PROMETHEUS_DOCKER_IP=$(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' zcashd-prometheus)
+</code></pre>
+<p>Then, update your <code>~/.zcash/zcash.conf</code> file to open port <code>9969</code> and allow
+connections from the <code>zcashd-prometheus</code> docker container.</p>
+<pre><code>cat &lt;&lt; PROM_CONF &gt;&gt; ~/.zcash/zcash.conf
+prometheusport=9969
+metricsallowip=$PROMETHEUS_DOCKER_IP/32
+PROM_CONF
+</code></pre>
+<p>You may then (re)start <code>zcashd</code> and navigate to
+<a href="http://localhost:9090/targets?search=">http://localhost:9090/targets?search=</a>
+to verify that the <code>prometheus</code> server is able to connect to the <code>zcashd</code>
+prometheus endpoint; you should see the host
+<code>http://host.docker.internal:9969/</code> having <code>UP</code> status. Once this is working,
+navigate to
+<a href="http://localhost:3030/d/U4U58t-Gk/zcashd-metrics">http://localhost:3030/d/U4U58t-Gk/zcashd-metrics</a>
+to view the dashboard. The username and password for this local grafana
+instance are set by default to <code>admin</code>/<code>admin</code>; the UI will ask you to change
+this on first use. Data gathered by the running prometheus instance and changes
+that you make to the grafana interface will be persisted across restarts.</p>
+<h4 id="manual-docker-setup-without-docker-compose"><a class="header" href="#manual-docker-setup-without-docker-compose">Manual Docker Setup Without docker-compose</a></h4>
 <p>The example instructions below were tested on Windows 10 using Docker Desktop
 with the WSL 2 backend, connected to a <code>zcashd</code> running inside WSL2 (but not
 inside Docker):</p>
@@ -527,14 +609,18 @@ docker volume create grafana-storage
 docker volume create prometheus-storage
 
 # Run Prometheus
-# You will need to modify ~/contrib/metrics/prometheus.yaml to match the
+# You will need to modify $(zcash_root)/contrib/metrics/prometheus.yaml to match the
 # port configured with -prometheusport and -metricsbind / -metricsallowip
 # (and possibly also for your Docker network setup).
-docker run --detach -p 9090:9090 --volume prometheus-storage:/prometheus --volume ~/contrib/metrics/prometheus.yaml:/etc/prometheus/prometheus.yml  prom/prometheus
+docker run --detach -p 9090:9090 --volume prometheus-storage:/prometheus --volume $(zcash_root)/contrib/metrics/prometheus.yaml:/etc/prometheus/prometheus.yml  prom/prometheus
 
 # Run Grafana
 docker run --detach -p 3030:3030 --env GF_SERVER_HTTP_PORT=3030 --volume grafana-storage:/var/lib/grafana grafana/grafana
 </code></pre>
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
+<p>This requires a running Docker daemon. See <a href="https://docs.docker.com/config/daemon/start/">the relevant section of the
+Docker Engine manual</a>.</p>
+</div>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="tor-support-in-zcash"><a class="header" href="#tor-support-in-zcash">Tor Support in Zcash</a></h1>
 <p>Tor can be used to provide a layer of network anonymity for Zcash users.
 Additionally, Zcash users may chose to connect only to Tor hidden services, and
@@ -923,7 +1009,10 @@ be extended beyond this on a case-by-case basis to satisfy user requirements. </
 will be disabled if <code>-allowdeprecated=none</code> is added to the CLI arguments when starting
 the node, or if an <code>allowdeprecated=none</code> line is added to <code>zcash.conf</code>.</p>
 <div class="table-wrapper"><table><thead><tr><th><code>feature</code></th><th>Deprecated</th><th>Feature details</th></tr></thead><tbody>
+<tr><td><code>z_getbalance</code></td><td>5.0.0</td><td>The <code>z_getbalance</code> RPC method.</td></tr>
+<tr><td><code>z_gettotalbalance</code></td><td>5.0.0</td><td>The <code>z_gettotalbalance</code> RPC method.</td></tr>
 <tr><td><code>gbt_oldhashes</code></td><td>5.4.0</td><td>The <code>finalsaplingroothash</code>, <code>lightclientroothash</code>, and <code>blockcommitmentshash</code> fields in the output of <code>getblocktemplate</code>, which are replaced by the <code>defaultroots</code> field.</td></tr>
+<tr><td><code>deprecationinfo_deprecationheight</code></td><td>5.5.0</td><td>The <code>deprecationheight</code> field returned by the <code>getdeprecationinfo</code> RPC method has been replaced by the <code>end_of_service</code> object.</td></tr>
 </tbody></table>
 </div>
 <h2 id="stage-2"><a class="header" href="#stage-2">Stage 2</a></h2>
@@ -934,8 +1023,6 @@ line to <code>zcash.conf</code>.</p>
 <tr><td><code>legacy_privacy</code></td><td>5.0.0</td><td>The default &quot;legacy&quot; privacy policy for <code>z_sendmany</code> has been replaced by the <code>FullPrivacy</code> directive.</td></tr>
 <tr><td><code>getnewaddress</code></td><td>5.0.0</td><td>The <code>getnewaddress</code> RPC method.</td></tr>
 <tr><td><code>getrawchangeaddress</code></td><td>5.0.0</td><td>The <code>getrawchangeaddress</code> RPC method.</td></tr>
-<tr><td><code>z_getbalance</code></td><td>5.0.0</td><td>The <code>z_getbalance</code> RPC method.</td></tr>
-<tr><td><code>z_gettotalbalance</code></td><td>5.0.0</td><td>The <code>z_gettotalbalance</code> RPC method.</td></tr>
 <tr><td><code>z_getnewaddress</code></td><td>5.0.0</td><td>The <code>z_getnewaddress</code> RPC method.</td></tr>
 <tr><td><code>z_listaddresses</code></td><td>5.0.0</td><td>The <code>z_listaddresses</code> RPC method.</td></tr>
 <tr><td><code>addrtype</code></td><td>5.0.0</td><td>The <code>type</code> attribute is deprecated in the results of RPC methods that return address metadata. It is recommended that applications using this metadata be updated to use the <code>pool</code> or <code>address_type</code> attributes, which have replaced the <code>type</code> attribute, as appropriate.</td></tr>
@@ -1465,5 +1552,6 @@ enabling the wallet to rebroadcast the unmodified transaction.</p>
         });
         </script>
 
+    </div>
     </body>
 </html>

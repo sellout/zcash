@@ -92,7 +92,7 @@ gumdrop = "0.8"
 anyhow = "1.0"
 backtrace = "0.3"
 clearscreen = "3"
-rand = "0.8"
+rand = "0.9"
 secrecy = "0.8"
 thiserror = "1"
 time = { version = "0.3", features = ["formatting", "macros"] }
